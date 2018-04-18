@@ -8,7 +8,7 @@ class Klasa{
     {
         axios.get(this.fetchURL)
             .then(function(response) {
-                console.log(response);
+                transport.wywal(response);
             })
             .catch(function (error) {
                 console.log(error);
@@ -16,7 +16,15 @@ class Klasa{
     }
 
 
-    wywolaj(){
+    wywal(response)
+    {
+        let lista = '<ul>';
+        response.data.rows.forEach((element) => {
+            lista += '<li>' + element + '</li>';
+        });
+            
+        lista += '</ul>';
+        $('#wyniki').append(lista);
         
     }
 }
