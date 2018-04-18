@@ -5,16 +5,30 @@
         <title> Interns Malta Project </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="js/bootstrap.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>   
 
                 //Pobieranie danych ze strony
-                fetch('http://dulian.cartodb.com/api/v2/sql/?q=SELECT%20*%20FROM%20mddk_info')
+
+                class data {
+                constructor(fetchURL){
+                    this.fetchURL = 'http://dulian.cartodb.com/api/v2/sql/?q=SELECT%20*%20FROM%20mddk_info';
+
+                }
+                pobierz(){
+
+             axios.get(this.fetchURL)
                 .then(function(response) {
-                    return response.json();
+                    console.log(response);
                 })
-                .then(function(viewdata) {
-                    console.log(viewdata);
+                .catch(function(error) {
+                    console.log(error);
                 });
+            }
+         }
+               var transport = new data;
       
 
 
@@ -30,15 +44,13 @@
         <body>
 
 
-            <button onclick="fetch()">Click</button>
+            <button onclick="transport.pobierz()">Click</button>
 
 
 
 
             
-            <script src="js/bootstrap.js"></script>
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+           
         </body>
 
 
