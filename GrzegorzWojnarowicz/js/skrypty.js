@@ -21,7 +21,8 @@ class Klasa{
         
         let lista = '<ul>';
         response.data.rows.forEach((element) => {
-            lista += '<li>' + element.adres + '<br>' + element.autorka + '<br>' + element.ceny_biletow + '<br>' + element.dostepnosc + '<br>' + element.e_mail + '<br>' + element.flickr + '<br>' + element.gmina + '<br>' + element.godziny_otwarcia + '<br>' + element.gps + '<br>' + element.obiekt + '<br>' + element.opis + '</li>';
+            lista += '<li>' + element.adres + '<br>' + element.autorka + '<br>' + element.ceny_biletow + '<br>' + element.dostepnosc + '<br>' + 
+            element.e_mail + '<br>' + '<a target="_blank" href="' + [element.flickr] + '"> zdjęcie </a>' + '<br>' + element.gmina + '<br>' + element.godziny_otwarcia + '<br>' + element.gps + '<br>' + element.obiekt + '<br>' + element.opis + '</li>';
         });
             
         lista += '</ul>';
