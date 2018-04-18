@@ -18,9 +18,10 @@ class Klasa{
 
     wywal(response)
     {
+        
         let lista = '<ul>';
         response.data.rows.forEach((element) => {
-            lista += '<li>' + element + '</li>';
+            lista += '<li>' + element.adres + '<br>' + element.autorka + '<br>' + element.ceny_biletow + '<br>' + element.dostepnosc + '<br>' + element.e_mail + '<br>' + element.flickr + '<br>' + element.gmina + '<br>' + element.godziny_otwarcia + '<br>' + element.gps + '<br>' + element.obiekt + '<br>' + element.opis + '</li>';
         });
             
         lista += '</ul>';
@@ -28,6 +29,7 @@ class Klasa{
         
     }
 }
+
 
 var transport = new Klasa;
 

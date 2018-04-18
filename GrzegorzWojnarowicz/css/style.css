@@ -1,0 +1,20 @@
+body {
+    margin-top: 20px;
+    margin-left: 20px;
+    background: linear-gradient(to right,  darkmagenta, darkcyan);
+    color: wheat;
+    font-size: 29px;
+}
+li {
+    color: wheat;
+    padding: 40px;
+    font-size: 20px;
+}
+input{
+    background-color: darkmagenta;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: orange;
+}
