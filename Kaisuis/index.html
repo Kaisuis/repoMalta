@@ -5,9 +5,11 @@
         <title> Interns Malta Project </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="js/bootstrap.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <script>   
 
                 //Pobieranie danych ze strony
@@ -21,36 +23,46 @@
 
              axios.get(this.fetchURL)
                 .then(function(response) {
-                    console.log(response);
+                    transport.wywal(response);
                 })
                 .catch(function(error) {
                     console.log(error);
                 });
             }
-         }
-               var transport = new data;
+                    wywal(response){
+                let lista = '<ul>';
+                response.data.rows.forEach((element) => {
+                    lista += '<li>' + '<h3>'+  element.obiekt + '</h3>'+ '<br>' + 'Autorka: ' + element.autorka + '<br>' + '<a target="_blank" href="' + [element.flickr] + '"> Link do zdjęcia </a>' + '<br>' + 'Ceny biletów: ' + element.ceny_biletow +
+                 '<br>' + 'Godziny otwarcia: ' + element.godziny_otwarcia + '<br>' + 'Adres: ' + element.adres + '<br>' + 'Gmina: ' + element.gmina +'<br>'+ 'Powiat: ' + element.powiat + '<br>' + 'Opis: ' + element.opis + '</li>';
+                });
+                    
+                lista += '</ul>';
+                $('#wyniki').append(lista);
+                
+            }
+
+
+                    zwroc(){
+
+
+                        
+                    }
+    }
+
+    
+        var transport = new data;
       
-
-
         </script>
-                   <style>
-                   
-
-
-                   </style>
-            <script src="css/bootstrap.css"></script>
     </head>
 
         <body>
-
-
-            <button onclick="transport.pobierz()">Click</button>
-
-
-
-
-            
+                
+                <center><button type="button" onclick="transport.pobierz()" class="btn btn-outline-dark" > Click </button></center>
+        
+                <div id="wyniki"></div>
            
+            
+
         </body>
 
 
