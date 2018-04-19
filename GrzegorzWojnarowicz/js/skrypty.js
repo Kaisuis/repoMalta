@@ -46,7 +46,7 @@ class Klasa{
                 var dana2 = parseFloat(element.latitude_0).toFixed(4);
                 //console.log(dana);
               //  console.log(dana2);
-                link = "https://www.gps-coordinates.net/latitude-longitude/"+dana+"/"+dana2+"/10/roadmap";
+                link = "https://www.gps-coordinates.net/latitude-longitude/"+dana2+"/"+dana+"/10/roadmap";
             
             }
         return link;
