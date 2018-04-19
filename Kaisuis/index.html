@@ -29,20 +29,43 @@
                     console.log(error);
                 });
                 }
+                //wstrzykiwanie na strone
                     wywal(response){
                 let lista = '<ul>';
                 
                 response.data.rows.forEach((element) => {
-                let koordynaty = this.wychwytywanie(element.gps);
+              //  let koordynaty = this.wychwytywanie(element.gps);
+              let link = this.filtrowanie(element);
                     lista += '<li>' + '<h3>'+  element.obiekt + '</h3>'+ '<br>' + 'Autorka: ' + element.autorka + '<br>' + '<a target="_blank" href="' + [element.flickr] + '"> Link do zdjęcia </a>' + '<br>' + 'Ceny biletów: ' + element.ceny_biletow +
-                 '<br>' + 'Godziny otwarcia: ' + element.godziny_otwarcia + '<br>' + 'Adres: ' + element.adres + '<br>' + 'Gmina: ' + element.gmina +'<br>'+ 'Powiat: ' + element.powiat + '<br>' + 'Opis: ' + element.opis + '</li>';
+                 '<br>' + 'Godziny otwarcia: ' + element.godziny_otwarcia + '<br>' + 'Adres: ' + element.adres + '<br>' + 'Gmina: ' + element.gmina +'<br>'+ 'Powiat: ' + element.powiat + '<br>' + 'Opis: ' + element.opis + '<br>' + '<a target="_blank" href="' + link + '"> Mapa </a>' + '</li>';
                 });
             
                 lista += '</ul>';
                 $('#wyniki').append(lista);
                 
                  }
-                 wychwytywanie(gps){
+
+             
+             filtrowanie(element){
+
+                          let link = null;
+
+                            if(element.hasOwnProperty("latitude_0") && element.hasOwnProperty("longitude_0") && element.longitude_0 != null && element.longitude_0 != "" && element.latitude_0 != null && element.latitude_0 != "")
+                                {
+                                    var dana = parseFloat(element.longitude_0).toFixed(4);
+                                    var dana2 = parseFloat(element.latitude_0).toFixed(4);
+                                   
+                                    link = "https://www.gps-coordinates.net/latitude-longitude/"+dana2+"/"+dana+"/10/roadmap";
+                                
+                                }
+                            return link;
+                                
+                        }
+
+
+
+                 // wychwytywanie po wspolrzednych nie w radianach (niedokonczone)
+             /*    wychwytywanie(gps){
             if(isNaN(gps) || gps == "" || gps == null){
                 return null;
             }
@@ -58,11 +81,8 @@
                 });
             }
                 }
-            }
-
-                    
-
-    
+                */
+                } 
         var transport = new data;
       
         </script>
