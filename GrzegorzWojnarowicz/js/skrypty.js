@@ -21,10 +21,11 @@ class Klasa{
         
         let lista = '<ul>';
         response.data.rows.forEach((element) => {
-            let koordynaty = this.wychwytywanie(element.gps);
+            let koordynaty = this.filtrowanie(element);
             lista += '<li>' + element.adres + '<br>' + element.autorka + '<br>' + element.ceny_biletow + '<br>' + element.dostepnosc + '<br>' + 
             element.e_mail + '<br>' + '<a target="_blank" href="' + [element.flickr] + '"> zdjęcie </a>' + '<br>' + element.gmina + '<br>' + element.godziny_otwarcia + '<br>' + 
-            element.gps + '<br>' + element.obiekt + '<br>' + element.opis + '</li>';
+            element.gps + '<br>' + element.obiekt + '<br>' + element.opis + '<br>' + element.longitude_0 + '<br>' + element.latitude_0 + '<br>' + '<a target="_blank" href="' + 
+            [element.link] + '"> mapa </a>' + '</li>';
         });
 
      
@@ -35,30 +36,26 @@ class Klasa{
         
     } 
 
-    wychwytywanie(gps)
-        {
-            if(isNaN(gps) || gps == "" || gps == null){
-                return null;
-            }
-            else
+    filtrowanie(element)
+    {
+        let link = null;
+
+        if(element.hasOwnProperty("latitude_0") && element.hasOwnProperty("longitude_0") && element.longitude_0 != null && element.longitude_0 != "" && element.latitude_0 != null && element.latitude_0 != "")
             {
-                var o = gps.split(" ");
-                o.forEach((element, index) => 
-                {
-                    if(element == "N"){
-                    let n = o[index + 1];
-                    console.log(n);
-                    }
-                });
+                var dana = element.longitude_0;
+                var dana2 = element.latitude_0
+                //console.log(dana);
+              //  console.log(dana2);
+                link = "https://www.gps-coordinates.net/latitude-longitude/"+dana+"/"+dana2+"/10/roadmap";
+            
             }
+
+        return link;
             
+    }
+
+
         
-            
-       //     var m = parseInt(response.data.rows.element.gps.substring(1, 2), 10)/60;
-//var l = parseInt(response.data.rows.element.gps.substring(2, 3), 10)/3600;
-         //   console.log(n + m + l);
-            
-        }
 }
 
 
