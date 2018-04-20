@@ -6,7 +6,6 @@ var transport = new Vue
     data: 
         {
             cos: 'ok',
-            lista: []
         },
 
     mounted()
@@ -42,7 +41,7 @@ var transport = new Vue
             });
 
             lista += '</ul>';
-            this.lista = response.data.rows;
+            $('#apka').append(lista);
             
 
         },
