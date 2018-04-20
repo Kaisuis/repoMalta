@@ -18,3 +18,12 @@ input{
     border-top-right-radius: 20px;
     color: orange;
 }
+iframe{
+    margin-left: 5%;
+    width: 90%;
+    height: 500px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
